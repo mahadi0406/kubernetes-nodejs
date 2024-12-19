@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-nodejs-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubernetes-nodejs
+  template:
+    metadata:
+      labels:
+        app: kubernetes-nodejs
+    spec:
+      containers:
+      - name: hello-world-app
+        image: hello-world-app:latest
+        ports:
+        - containerPort: 3000
